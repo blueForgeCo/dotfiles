@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+    echo "Installing vim-plug"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    echo "Cloning TPM"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+
+which stow > /dev/null
+if [[ $? != 0 ]]; then 
+    echo "Installing stow"
+    pacman --sync stow
+fi
+
+
+
+stow -t ~/ .

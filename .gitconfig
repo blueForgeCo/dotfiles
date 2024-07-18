@@ -1,0 +1,15 @@
+[user]
+	name = Blue Forge
+	email = blueforgeco@gmail.com
+[init]
+	defaultBranch = main
+[alias]
+	st = status
+	last = log -1
+	recommit = commit --amend --no-edit
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential
