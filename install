@@ -18,6 +18,20 @@ if [[ $? != 0 ]]; then
     pacman --sync stow
 fi
 
-
+if [[ ! -f ~/.bash_custom ]]; then
+    touch ~/.bash_custom
+fi
+if [[ ! -f ~/.zsh_custom ]]; then
+    touch ~/.zsh_custom
+fi
+if [[ ! -f ~/.gitconfig_custom ]]; then
+    touch ~/.gitconfig_custom
+fi
+if [[ ! -f ~/.vimrc_custom ]]; then
+    touch ~/.vimrc_custom
+fi
+if [[ ! -f ~/.tmux_custom.conf ]]; then
+    touch ~/.tmux_custom.conf
+fi
 
 stow -t ~/ .
