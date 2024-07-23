@@ -8,3 +8,5 @@
 	ls = show --pretty='' --name-only
 [include]
     path = ~/.gitconfig_custom
+[color]
+	ui = auto

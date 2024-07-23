@@ -1,3 +1,6 @@
+if filereadable("~/.vimrc_custom")
+	source ~/.vimrc_custom
+endif
 syntax on
 set nocompatible
 set noerrorbells
@@ -9,12 +12,12 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
+set undodir=~/.vimundo/undodir
 set undofile
 set incsearch
 set hlsearch
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=4 guibg=lightgrey
@@ -33,6 +36,9 @@ Plug 'vhda/verilog_systemverilog.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
+Plug 'google/vim-searchindex'
+Plug 'junkblocker/git-time-lapse'
+Plug 'tpope/vim-abolish'
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine
 Plug 'blueForgeCo/vim-snippets'
@@ -48,6 +54,8 @@ runtime macros/matchit.vim
 " ---------------------- Key Mapping ----------------------
 
 map <F2> :NERDTree<CR>
+
+nmap <Leader>gt <Plug>(git-time-lapse)
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -67,8 +75,10 @@ autocmd VimEnter * set winfixwidth
 " refer: https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 set backspace=indent,eol,start
 
-" CTRL+P to open FZF
+" CTRL+p to open FZF
 nnoremap <silent> <C-p> :FZF<CR>
+" CTRL+f to open FZF with word under the cursor
+nnoremap <silent> <C-f> :FZF --query <cword><CR>
 
 " <leader>q to quit current buffer
 nnoremap <leader>q :q!<CR>
