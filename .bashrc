@@ -6,7 +6,7 @@ fi
 # alias
 alias e="vim"
 alias ls="ls --color"
-alias ll="ls -la"
+alias ll="ls -lah"
 
 # source fzf shell integrations
 eval "$(fzf --bash)"
